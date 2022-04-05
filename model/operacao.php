@@ -13,7 +13,7 @@ class Operacao{
     }
 
     function createFruta($campo_2,$campo_3,$campo_4){
-        $stmt = $this->con->prepare("INSERT INTO apigp ('uidcarro','nomecarro','valorcarro','imgcarro')VALUES(?,?,?)");
+        $stmt = $this->con->prepare("INSERT INTO carros_tb ('uidcarro','nomecarro','valorcarro','imgcarro')VALUES(?,?,?)");
         $stmt->bind_param("sss",$campo_2,$campo_3,$campo_4);
             if($stmt->execute())
                 return true;
@@ -21,7 +21,7 @@ class Operacao{
     }
 
     function getFrutas(){
-        $stmt = $this->con->prepare("Select * from apigp");
+        $stmt = $this->con->prepare("Select * from carros_tb");
         $stmt->execute();
         $stmt->bind_result($uid,$nomecarro,$valorcarro,$imgcarro);
 
